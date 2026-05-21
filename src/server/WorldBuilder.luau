@@ -53,11 +53,12 @@ function WorldBuilder.build()
 	world.Name = WORLD_FOLDER_NAME
 	world.Parent = workspace
 
+	local flatCylinderCFrame = CFrame.Angles(0, 0, math.rad(90))
 	local island = createPart(
 		world,
 		"FloatingGrassIsland",
-		Vector3.new(96, 8, 96),
-		CFrame.new(0, 0, 0),
+		Vector3.new(8, 96, 96),
+		CFrame.new(0, 0, 0) * flatCylinderCFrame,
 		Color3.fromRGB(76, 181, 105),
 		Enum.Material.Grass
 	)
@@ -66,8 +67,8 @@ function WorldBuilder.build()
 	local soil = createPart(
 		world,
 		"IslandSoilBase",
-		Vector3.new(88, 16, 88),
-		CFrame.new(0, -10, 0),
+		Vector3.new(16, 88, 88),
+		CFrame.new(0, -10, 0) * flatCylinderCFrame,
 		Color3.fromRGB(120, 88, 59),
 		Enum.Material.Ground
 	)
@@ -76,8 +77,8 @@ function WorldBuilder.build()
 	local zone = createPart(
 		world,
 		AuraDefinitions.ZoneName,
-		Vector3.new(34, 1, 34),
-		CFrame.new(0, 4.7, 0),
+		Vector3.new(1, 34, 34),
+		CFrame.new(0, 4.7, 0) * flatCylinderCFrame,
 		Color3.fromRGB(255, 210, 100),
 		Enum.Material.Neon
 	)

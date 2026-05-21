@@ -7,6 +7,8 @@ const checks = [
       "function WorldBuilder.build",
       "local existing = workspace:FindFirstChild(WORLD_FOLDER_NAME)",
       "return getExistingWorld(existing)",
+      "local flatCylinderCFrame = CFrame.Angles(0, 0, math.rad(90))",
+      "Vector3.new(8, 96, 96)",
       "AuraZone",
       "SpawnLocation",
       "Lighting.ClockTime",
@@ -17,6 +19,8 @@ const checks = [
     file: "src/workspace/SunsetIsland.model.json",
     snippets: [
       "\"ClassName\": \"Folder\"",
+      "\"Size\": [8, 96, 96]",
+      "\"Orientation\": [0, 0, 90]",
       "\"Name\": \"FloatingGrassIsland\"",
       "\"Name\": \"AuraZone\"",
       "\"Name\": \"SpawnLocation\"",
