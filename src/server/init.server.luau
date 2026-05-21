@@ -4,7 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local sharedRoot = ReplicatedStorage:WaitForChild("Shared")
 local AuraDefinitions = require(sharedRoot:WaitForChild("AuraDefinitions"))
 
-local serverRoot = script.Parent
+local serverRoot = script
 local ProfileStore = require(serverRoot:WaitForChild("ProfileStore"))
 local RemoteBuilder = require(serverRoot:WaitForChild("RemoteBuilder"))
 local RollService = require(serverRoot:WaitForChild("RollService"))

@@ -31,9 +31,12 @@ const checks = [
       "RollAura.OnServerInvoke",
       "ProfileUpdated:FireClient",
       "leaderstats",
+      "local serverRoot = script",
+      "require(serverRoot:WaitForChild(\"ProfileStore\"))",
+      "require(serverRoot:WaitForChild(\"WorldBuilder\"))",
     ],
     forbiddenSnippets: [
-      "require(script:WaitForChild(",
+      "local serverRoot = script.Parent",
     ],
   },
 ];
