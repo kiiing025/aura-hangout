@@ -4,12 +4,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local sharedRoot = ReplicatedStorage:WaitForChild("Shared")
 local AuraDefinitions = require(sharedRoot:WaitForChild("AuraDefinitions"))
 
-local ProfileStore = require(script:WaitForChild("ProfileStore"))
-local RemoteBuilder = require(script:WaitForChild("RemoteBuilder"))
-local RollService = require(script:WaitForChild("RollService"))
-local AuraVisualService = require(script:WaitForChild("AuraVisualService"))
-local WorldBuilder = require(script:WaitForChild("WorldBuilder"))
-local StillnessService = require(script:WaitForChild("StillnessService"))
+local serverRoot = script.Parent
+local ProfileStore = require(serverRoot:WaitForChild("ProfileStore"))
+local RemoteBuilder = require(serverRoot:WaitForChild("RemoteBuilder"))
+local RollService = require(serverRoot:WaitForChild("RollService"))
+local AuraVisualService = require(serverRoot:WaitForChild("AuraVisualService"))
+local WorldBuilder = require(serverRoot:WaitForChild("WorldBuilder"))
+local StillnessService = require(serverRoot:WaitForChild("StillnessService"))
 
 local profilesByPlayer = {}
 local remotes = RemoteBuilder.build()

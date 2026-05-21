@@ -32,6 +32,9 @@ const checks = [
       "ProfileUpdated:FireClient",
       "leaderstats",
     ],
+    forbiddenSnippets: [
+      "require(script:WaitForChild(",
+    ],
   },
 ];
 
@@ -48,6 +51,13 @@ for (const check of checks) {
   for (const snippet of check.snippets) {
     if (!source.includes(snippet)) {
       console.error(`FAIL: ${check.file} missing snippet: ${snippet}`);
+      failed = true;
+    }
+  }
+
+  for (const snippet of check.forbiddenSnippets ?? []) {
+    if (source.includes(snippet)) {
+      console.error(`FAIL: ${check.file} contains forbidden snippet: ${snippet}`);
       failed = true;
     }
   }
