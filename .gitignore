@@ -1,0 +1,15 @@
+.superpowers/
+.DS_Store
+Thumbs.db
+
+# Roblox Studio place/model exports are generated artifacts for this Rojo workflow.
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+*.rbxl.lock
+
+# Tooling caches and generated files.
+node_modules/
+sourcemap.json
+*.log
