@@ -8,6 +8,7 @@ const checks = [
       "Rojo",
       "default.project.json",
       "AuraZone",
+      "MainGrassPlaza",
       "Enable Studio Access to API Services",
     ],
   },

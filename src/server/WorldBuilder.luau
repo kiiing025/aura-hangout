@@ -10,12 +10,12 @@ local WORLD_FOLDER_NAME = "SunsetIsland"
 local function configureLighting()
 	Lighting.ClockTime = 17.8
 	Lighting.Brightness = 2.2
-	Lighting.EnvironmentDiffuseScale = 0.65
-	Lighting.EnvironmentSpecularScale = 0.45
+	Lighting.EnvironmentDiffuseScale = 0.75
+	Lighting.EnvironmentSpecularScale = 0.35
 	Lighting.OutdoorAmbient = Color3.fromRGB(255, 190, 140)
 	Lighting.FogColor = Color3.fromRGB(255, 178, 128)
-	Lighting.FogStart = 120
-	Lighting.FogEnd = 520
+	Lighting.FogStart = 150
+	Lighting.FogEnd = 560
 end
 
 local function getExistingWorld(existing)
@@ -39,6 +39,73 @@ local function createPart(parent, name, size, cframe, color, material)
 	return part
 end
 
+local function createLamp(parent, name, position)
+	local post = createPart(
+		parent,
+		name,
+		Vector3.new(1.2, 8, 1.2),
+		CFrame.new(position),
+		Color3.fromRGB(92, 66, 51),
+		Enum.Material.Wood
+	)
+
+	local glow = createPart(
+		parent,
+		name .. "Glow",
+		Vector3.new(3.2, 3.2, 3.2),
+		CFrame.new(position + Vector3.new(0, 5.2, 0)),
+		Color3.fromRGB(255, 197, 87),
+		Enum.Material.Neon
+	)
+	glow.Shape = Enum.PartType.Ball
+	glow.CanCollide = false
+
+	local light = Instance.new("PointLight")
+	light.Name = "WarmLight"
+	light.Color = Color3.fromRGB(255, 184, 102)
+	light.Brightness = 1.8
+	light.Range = 24
+	light.Parent = glow
+
+	return post
+end
+
+local function createBench(parent, name, position, rotationY)
+	local rotation = CFrame.Angles(0, math.rad(rotationY), 0)
+	createPart(
+		parent,
+		name .. "Seat",
+		Vector3.new(14, 1, 3),
+		CFrame.new(position) * rotation,
+		Color3.fromRGB(128, 88, 58),
+		Enum.Material.Wood
+	)
+	createPart(
+		parent,
+		name .. "Back",
+		Vector3.new(14, 4, 1),
+		CFrame.new(position + Vector3.new(0, 2.1, 1.9)) * rotation,
+		Color3.fromRGB(104, 70, 48),
+		Enum.Material.Wood
+	)
+	createPart(
+		parent,
+		name .. "LeftLeg",
+		Vector3.new(1, 2.2, 1),
+		CFrame.new(position + Vector3.new(-5, -1.5, 0)) * rotation,
+		Color3.fromRGB(76, 54, 44),
+		Enum.Material.Wood
+	)
+	createPart(
+		parent,
+		name .. "RightLeg",
+		Vector3.new(1, 2.2, 1),
+		CFrame.new(position + Vector3.new(5, -1.5, 0)) * rotation,
+		Color3.fromRGB(76, 54, 44),
+		Enum.Material.Wood
+	)
+end
+
 function WorldBuilder.build()
 	configureLighting()
 
@@ -53,74 +120,65 @@ function WorldBuilder.build()
 	world.Name = WORLD_FOLDER_NAME
 	world.Parent = workspace
 
-	local flatCylinderCFrame = CFrame.Angles(0, 0, math.rad(90))
-	local island = createPart(
+	createPart(
 		world,
-		"FloatingGrassIsland",
-		Vector3.new(8, 96, 96),
-		CFrame.new(0, 0, 0) * flatCylinderCFrame,
-		Color3.fromRGB(76, 181, 105),
-		Enum.Material.Grass
-	)
-	island.Shape = Enum.PartType.Cylinder
-
-	local soil = createPart(
-		world,
-		"IslandSoilBase",
-		Vector3.new(16, 88, 88),
-		CFrame.new(0, -10, 0) * flatCylinderCFrame,
-		Color3.fromRGB(120, 88, 59),
+		"IslandSoilFoundation",
+		Vector3.new(118, 10, 118),
+		CFrame.new(0, -6, 0),
+		Color3.fromRGB(116, 82, 55),
 		Enum.Material.Ground
 	)
-	soil.Shape = Enum.PartType.Cylinder
+
+	createPart(
+		world,
+		"MainGrassPlaza",
+		Vector3.new(112, 4, 112),
+		CFrame.new(0, 1, 0),
+		Color3.fromRGB(75, 176, 103),
+		Enum.Material.Grass
+	)
 
 	local zone = createPart(
 		world,
 		AuraDefinitions.ZoneName,
-		Vector3.new(1, 34, 34),
-		CFrame.new(0, 4.7, 0) * flatCylinderCFrame,
-		Color3.fromRGB(255, 210, 100),
+		Vector3.new(38, 0.35, 38),
+		CFrame.new(0, 3.3, 0),
+		Color3.fromRGB(79, 241, 204),
 		Enum.Material.Neon
 	)
-	zone.Shape = Enum.PartType.Cylinder
-	zone.Transparency = 0.45
+	zone.Transparency = 0.25
 	zone.CanCollide = false
 
 	local zoneLight = Instance.new("PointLight")
 	zoneLight.Name = "AuraZoneGlow"
-	zoneLight.Color = Color3.fromRGB(255, 197, 87)
-	zoneLight.Brightness = 2.5
-	zoneLight.Range = 32
+	zoneLight.Color = Color3.fromRGB(79, 241, 204)
+	zoneLight.Brightness = 3.2
+	zoneLight.Range = 42
 	zoneLight.Parent = zone
 
 	local spawn = Instance.new("SpawnLocation")
 	spawn.Name = "SpawnLocation"
 	spawn.Size = Vector3.new(10, 1, 10)
-	spawn.CFrame = CFrame.new(0, 5.5, -28)
+	spawn.CFrame = CFrame.new(0, 4, -42)
 	spawn.Color = Color3.fromRGB(255, 231, 156)
 	spawn.Material = Enum.Material.SmoothPlastic
 	spawn.Anchored = true
 	spawn.Neutral = true
 	spawn.Parent = world
 
-	for index, angle in ipairs({ 0, 72, 144, 216, 288 }) do
-		local radians = math.rad(angle)
-		local x = math.cos(radians) * 34
-		local z = math.sin(radians) * 34
-		local palm = createPart(
-			world,
-			`GlowPalm{index}`,
-			Vector3.new(3, 12, 3),
-			CFrame.new(x, 10, z),
-			Color3.fromRGB(124, 88, 52),
-			Enum.Material.Wood
-		)
-		local lamp = Instance.new("PointLight")
-		lamp.Color = Color3.fromRGB(255, 179, 93)
-		lamp.Brightness = 0.8
-		lamp.Range = 14
-		lamp.Parent = palm
-	end
+	createPart(world, "LowWallNorth", Vector3.new(76, 4, 2), CFrame.new(0, 4, -55), Color3.fromRGB(255, 214, 130), Enum.Material.SmoothPlastic)
+	createPart(world, "LowWallSouth", Vector3.new(76, 4, 2), CFrame.new(0, 4, 55), Color3.fromRGB(255, 214, 130), Enum.Material.SmoothPlastic)
+	createPart(world, "LowWallWest", Vector3.new(2, 4, 76), CFrame.new(-55, 4, 0), Color3.fromRGB(255, 214, 130), Enum.Material.SmoothPlastic)
+	createPart(world, "LowWallEast", Vector3.new(2, 4, 76), CFrame.new(55, 4, 0), Color3.fromRGB(255, 214, 130), Enum.Material.SmoothPlastic)
+
+	createLamp(world, "GlowLamp1", Vector3.new(-38, 5, -38))
+	createLamp(world, "GlowLamp2", Vector3.new(38, 5, -38))
+	createLamp(world, "GlowLamp3", Vector3.new(-38, 5, 38))
+	createLamp(world, "GlowLamp4", Vector3.new(38, 5, 38))
+
+	createBench(world, "CozyBench1", Vector3.new(-28, 5, 18), 35)
+	createBench(world, "CozyBench2", Vector3.new(28, 5, 18), -35)
+	createBench(world, "CozyBench3", Vector3.new(0, 5, 34), 180)
 
 	return {
 		world = world,

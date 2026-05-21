@@ -3,30 +3,26 @@
   "Children": [
     {
       "ClassName": "Part",
-      "Name": "FloatingGrassIsland",
+      "Name": "IslandSoilFoundation",
       "Properties": {
-        "Size": [8, 96, 96],
-        "Position": [0, 0, 0],
-        "Orientation": [0, 0, 90],
-        "Color": [0.2980392156862745, 0.7098039215686275, 0.4117647058823529],
-        "Material": "Grass",
+        "Size": [118, 10, 118],
+        "Position": [0, -6, 0],
+        "Color": [0.4549019607843137, 0.3215686274509804, 0.21568627450980393],
+        "Material": "Ground",
         "Anchored": true,
-        "Shape": "Cylinder",
         "TopSurface": "Smooth",
         "BottomSurface": "Smooth"
       }
     },
     {
       "ClassName": "Part",
-      "Name": "IslandSoilBase",
+      "Name": "MainGrassPlaza",
       "Properties": {
-        "Size": [16, 88, 88],
-        "Position": [0, -10, 0],
-        "Orientation": [0, 0, 90],
-        "Color": [0.47058823529411764, 0.34509803921568627, 0.23137254901960785],
-        "Material": "Ground",
+        "Size": [112, 4, 112],
+        "Position": [0, 1, 0],
+        "Color": [0.29411764705882354, 0.6901960784313725, 0.403921568627451],
+        "Material": "Grass",
         "Anchored": true,
-        "Shape": "Cylinder",
         "TopSurface": "Smooth",
         "BottomSurface": "Smooth"
       }
@@ -35,14 +31,12 @@
       "ClassName": "Part",
       "Name": "AuraZone",
       "Properties": {
-        "Size": [1, 34, 34],
-        "Position": [0, 4.7, 0],
-        "Orientation": [0, 0, 90],
-        "Color": [1, 0.8235294117647058, 0.39215686274509803],
+        "Size": [38, 0.35, 38],
+        "Position": [0, 3.3, 0],
+        "Color": [0.30980392156862746, 0.9450980392156862, 0.8],
         "Material": "Neon",
         "Anchored": true,
-        "Shape": "Cylinder",
-        "Transparency": 0.45,
+        "Transparency": 0.25,
         "CanCollide": false,
         "TopSurface": "Smooth",
         "BottomSurface": "Smooth"
@@ -52,9 +46,9 @@
           "ClassName": "PointLight",
           "Name": "AuraZoneGlow",
           "Properties": {
-            "Color": [1, 0.7725490196078432, 0.3411764705882353],
-            "Brightness": 2.5,
-            "Range": 32
+            "Color": [0.30980392156862746, 0.9450980392156862, 0.8],
+            "Brightness": 3.2,
+            "Range": 42
           }
         }
       ]
@@ -64,7 +58,7 @@
       "Name": "SpawnLocation",
       "Properties": {
         "Size": [10, 1, 10],
-        "Position": [0, 5.5, -28],
+        "Position": [0, 4, -42],
         "Color": [1, 0.9058823529411765, 0.611764705882353],
         "Material": "SmoothPlastic",
         "Anchored": true,
@@ -75,123 +69,253 @@
     },
     {
       "ClassName": "Part",
-      "Name": "GlowPalm1",
+      "Name": "LowWallNorth",
       "Properties": {
-        "Size": [3, 12, 3],
-        "Position": [34, 10, 0],
-        "Color": [0.48627450980392156, 0.34509803921568627, 0.20392156862745098],
+        "Size": [76, 4, 2],
+        "Position": [0, 4, -55],
+        "Color": [1, 0.8392156862745098, 0.5098039215686274],
+        "Material": "SmoothPlastic",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "LowWallSouth",
+      "Properties": {
+        "Size": [76, 4, 2],
+        "Position": [0, 4, 55],
+        "Color": [1, 0.8392156862745098, 0.5098039215686274],
+        "Material": "SmoothPlastic",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "LowWallWest",
+      "Properties": {
+        "Size": [2, 4, 76],
+        "Position": [-55, 4, 0],
+        "Color": [1, 0.8392156862745098, 0.5098039215686274],
+        "Material": "SmoothPlastic",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "LowWallEast",
+      "Properties": {
+        "Size": [2, 4, 76],
+        "Position": [55, 4, 0],
+        "Color": [1, 0.8392156862745098, 0.5098039215686274],
+        "Material": "SmoothPlastic",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "GlowLamp1",
+      "Properties": {
+        "Size": [1.2, 8, 1.2],
+        "Position": [-38, 5, -38],
+        "Color": [0.3607843137254902, 0.25882352941176473, 0.2],
         "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "GlowLamp1Glow",
+      "Properties": {
+        "Size": [3.2, 3.2, 3.2],
+        "Position": [-38, 10.2, -38],
+        "Color": [1, 0.7725490196078432, 0.3411764705882353],
+        "Material": "Neon",
         "Anchored": true,
-        "TopSurface": "Smooth",
-        "BottomSurface": "Smooth"
+        "Shape": "Ball",
+        "CanCollide": false
       },
       "Children": [
         {
           "ClassName": "PointLight",
-          "Name": "WarmPalmGlow",
+          "Name": "WarmLight",
           "Properties": {
-            "Color": [1, 0.7019607843137254, 0.36470588235294116],
-            "Brightness": 0.8,
-            "Range": 14
+            "Color": [1, 0.7215686274509804, 0.4],
+            "Brightness": 1.8,
+            "Range": 24
           }
         }
       ]
     },
     {
       "ClassName": "Part",
-      "Name": "GlowPalm2",
+      "Name": "GlowLamp2",
       "Properties": {
-        "Size": [3, 12, 3],
-        "Position": [10.5, 10, 32.3],
-        "Color": [0.48627450980392156, 0.34509803921568627, 0.20392156862745098],
+        "Size": [1.2, 8, 1.2],
+        "Position": [38, 5, -38],
+        "Color": [0.3607843137254902, 0.25882352941176473, 0.2],
         "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "GlowLamp2Glow",
+      "Properties": {
+        "Size": [3.2, 3.2, 3.2],
+        "Position": [38, 10.2, -38],
+        "Color": [1, 0.7725490196078432, 0.3411764705882353],
+        "Material": "Neon",
         "Anchored": true,
-        "TopSurface": "Smooth",
-        "BottomSurface": "Smooth"
+        "Shape": "Ball",
+        "CanCollide": false
       },
       "Children": [
         {
           "ClassName": "PointLight",
-          "Name": "WarmPalmGlow",
+          "Name": "WarmLight",
           "Properties": {
-            "Color": [1, 0.7019607843137254, 0.36470588235294116],
-            "Brightness": 0.8,
-            "Range": 14
+            "Color": [1, 0.7215686274509804, 0.4],
+            "Brightness": 1.8,
+            "Range": 24
           }
         }
       ]
     },
     {
       "ClassName": "Part",
-      "Name": "GlowPalm3",
+      "Name": "GlowLamp3",
       "Properties": {
-        "Size": [3, 12, 3],
-        "Position": [-27.5, 10, 20],
-        "Color": [0.48627450980392156, 0.34509803921568627, 0.20392156862745098],
+        "Size": [1.2, 8, 1.2],
+        "Position": [-38, 5, 38],
+        "Color": [0.3607843137254902, 0.25882352941176473, 0.2],
         "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "GlowLamp3Glow",
+      "Properties": {
+        "Size": [3.2, 3.2, 3.2],
+        "Position": [-38, 10.2, 38],
+        "Color": [1, 0.7725490196078432, 0.3411764705882353],
+        "Material": "Neon",
         "Anchored": true,
-        "TopSurface": "Smooth",
-        "BottomSurface": "Smooth"
+        "Shape": "Ball",
+        "CanCollide": false
       },
       "Children": [
         {
           "ClassName": "PointLight",
-          "Name": "WarmPalmGlow",
+          "Name": "WarmLight",
           "Properties": {
-            "Color": [1, 0.7019607843137254, 0.36470588235294116],
-            "Brightness": 0.8,
-            "Range": 14
+            "Color": [1, 0.7215686274509804, 0.4],
+            "Brightness": 1.8,
+            "Range": 24
           }
         }
       ]
     },
     {
       "ClassName": "Part",
-      "Name": "GlowPalm4",
+      "Name": "GlowLamp4",
       "Properties": {
-        "Size": [3, 12, 3],
-        "Position": [-27.5, 10, -20],
-        "Color": [0.48627450980392156, 0.34509803921568627, 0.20392156862745098],
+        "Size": [1.2, 8, 1.2],
+        "Position": [38, 5, 38],
+        "Color": [0.3607843137254902, 0.25882352941176473, 0.2],
         "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "GlowLamp4Glow",
+      "Properties": {
+        "Size": [3.2, 3.2, 3.2],
+        "Position": [38, 10.2, 38],
+        "Color": [1, 0.7725490196078432, 0.3411764705882353],
+        "Material": "Neon",
         "Anchored": true,
-        "TopSurface": "Smooth",
-        "BottomSurface": "Smooth"
+        "Shape": "Ball",
+        "CanCollide": false
       },
       "Children": [
         {
           "ClassName": "PointLight",
-          "Name": "WarmPalmGlow",
+          "Name": "WarmLight",
           "Properties": {
-            "Color": [1, 0.7019607843137254, 0.36470588235294116],
-            "Brightness": 0.8,
-            "Range": 14
+            "Color": [1, 0.7215686274509804, 0.4],
+            "Brightness": 1.8,
+            "Range": 24
           }
         }
       ]
     },
     {
       "ClassName": "Part",
-      "Name": "GlowPalm5",
+      "Name": "CozyBench1Seat",
       "Properties": {
-        "Size": [3, 12, 3],
-        "Position": [10.5, 10, -32.3],
-        "Color": [0.48627450980392156, 0.34509803921568627, 0.20392156862745098],
+        "Size": [14, 1, 3],
+        "Position": [-28, 5, 18],
+        "Color": [0.5019607843137255, 0.34509803921568627, 0.22745098039215686],
         "Material": "Wood",
-        "Anchored": true,
-        "TopSurface": "Smooth",
-        "BottomSurface": "Smooth"
-      },
-      "Children": [
-        {
-          "ClassName": "PointLight",
-          "Name": "WarmPalmGlow",
-          "Properties": {
-            "Color": [1, 0.7019607843137254, 0.36470588235294116],
-            "Brightness": 0.8,
-            "Range": 14
-          }
-        }
-      ]
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "CozyBench1Back",
+      "Properties": {
+        "Size": [14, 4, 1],
+        "Position": [-28, 7.1, 20],
+        "Color": [0.40784313725490196, 0.27450980392156865, 0.18823529411764706],
+        "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "CozyBench2Seat",
+      "Properties": {
+        "Size": [14, 1, 3],
+        "Position": [28, 5, 18],
+        "Color": [0.5019607843137255, 0.34509803921568627, 0.22745098039215686],
+        "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "CozyBench2Back",
+      "Properties": {
+        "Size": [14, 4, 1],
+        "Position": [28, 7.1, 20],
+        "Color": [0.40784313725490196, 0.27450980392156865, 0.18823529411764706],
+        "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "CozyBench3Seat",
+      "Properties": {
+        "Size": [14, 1, 3],
+        "Position": [0, 5, 34],
+        "Color": [0.5019607843137255, 0.34509803921568627, 0.22745098039215686],
+        "Material": "Wood",
+        "Anchored": true
+      }
+    },
+    {
+      "ClassName": "Part",
+      "Name": "CozyBench3Back",
+      "Properties": {
+        "Size": [14, 4, 1],
+        "Position": [0, 7.1, 36],
+        "Color": [0.40784313725490196, 0.27450980392156865, 0.18823529411764706],
+        "Material": "Wood",
+        "Anchored": true
+      }
     }
   ]
 }

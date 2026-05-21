@@ -51,8 +51,10 @@ If DataStore loading fails during early testing, the server uses a safe default 
 After Rojo syncs, the editable place should include:
 
 - `Workspace.SunsetIsland`
-- `Workspace.SunsetIsland.FloatingGrassIsland`
+- `Workspace.SunsetIsland.MainGrassPlaza`
 - `Workspace.SunsetIsland.AuraZone`
 - `Workspace.SunsetIsland.SpawnLocation`
+- `Workspace.SunsetIsland.GlowLamp1`
+- `Workspace.SunsetIsland.CozyBench1Seat`
 
 The server reuses those objects when Play starts. The important object for point earning is `AuraZone`.
