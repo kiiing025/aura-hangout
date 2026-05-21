@@ -5,10 +5,22 @@ const checks = [
     file: "src/server/WorldBuilder.luau",
     snippets: [
       "function WorldBuilder.build",
+      "local existing = workspace:FindFirstChild(WORLD_FOLDER_NAME)",
+      "return getExistingWorld(existing)",
       "AuraZone",
       "SpawnLocation",
       "Lighting.ClockTime",
       "SunsetIsland",
+    ],
+  },
+  {
+    file: "src/workspace/SunsetIsland.model.json",
+    snippets: [
+      "\"ClassName\": \"Folder\"",
+      "\"Name\": \"FloatingGrassIsland\"",
+      "\"Name\": \"AuraZone\"",
+      "\"Name\": \"SpawnLocation\"",
+      "\"ClassName\": \"PointLight\"",
     ],
   },
   {

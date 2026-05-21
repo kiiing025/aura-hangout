@@ -30,6 +30,7 @@ Keep that terminal open while working in Roblox Studio.
 3. Open the Rojo plugin.
 4. Connect the plugin to the running Rojo server.
 5. Confirm these folders/scripts appear:
+   - `Workspace.SunsetIsland`
    - `ReplicatedStorage.Shared.AuraDefinitions`
    - `ServerScriptService.Server`
    - `StarterPlayer.StarterPlayerScripts.Client.AuraHud`
@@ -47,11 +48,11 @@ If DataStore loading fails during early testing, the server uses a safe default 
 
 ## Expected World Objects
 
-When the game starts, `WorldBuilder` creates:
+After Rojo syncs, the editable place should include:
 
 - `Workspace.SunsetIsland`
 - `Workspace.SunsetIsland.FloatingGrassIsland`
 - `Workspace.SunsetIsland.AuraZone`
 - `Workspace.SunsetIsland.SpawnLocation`
 
-The important object for point earning is `AuraZone`.
+The server reuses those objects when Play starts. The important object for point earning is `AuraZone`.

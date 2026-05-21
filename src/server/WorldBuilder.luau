@@ -7,6 +7,24 @@ local WorldBuilder = {}
 
 local WORLD_FOLDER_NAME = "SunsetIsland"
 
+local function configureLighting()
+	Lighting.ClockTime = 17.8
+	Lighting.Brightness = 2.2
+	Lighting.EnvironmentDiffuseScale = 0.65
+	Lighting.EnvironmentSpecularScale = 0.45
+	Lighting.OutdoorAmbient = Color3.fromRGB(255, 190, 140)
+	Lighting.FogColor = Color3.fromRGB(255, 178, 128)
+	Lighting.FogStart = 120
+	Lighting.FogEnd = 520
+end
+
+local function getExistingWorld(existing)
+	return {
+		world = existing,
+		zone = existing:FindFirstChild(AuraDefinitions.ZoneName, true),
+	}
+end
+
 local function createPart(parent, name, size, cframe, color, material)
 	local part = Instance.new("Part")
 	part.Name = name
@@ -22,19 +40,14 @@ local function createPart(parent, name, size, cframe, color, material)
 end
 
 function WorldBuilder.build()
+	configureLighting()
+
 	local existing = workspace:FindFirstChild(WORLD_FOLDER_NAME)
-	if existing then
+	if existing and existing:FindFirstChild(AuraDefinitions.ZoneName, true) then
+		return getExistingWorld(existing)
+	elseif existing then
 		existing:Destroy()
 	end
-
-	Lighting.ClockTime = 17.8
-	Lighting.Brightness = 2.2
-	Lighting.EnvironmentDiffuseScale = 0.65
-	Lighting.EnvironmentSpecularScale = 0.45
-	Lighting.OutdoorAmbient = Color3.fromRGB(255, 190, 140)
-	Lighting.FogColor = Color3.fromRGB(255, 178, 128)
-	Lighting.FogStart = 120
-	Lighting.FogEnd = 520
 
 	local world = Instance.new("Folder")
 	world.Name = WORLD_FOLDER_NAME

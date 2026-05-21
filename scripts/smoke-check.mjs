@@ -25,6 +25,7 @@ const requiredPaths = [
   "src/shared",
   "src/server",
   "src/client",
+  "src/workspace/SunsetIsland.model.json",
 ];
 
 for (const relativePath of requiredPaths) {
@@ -38,6 +39,10 @@ if (existsSync(projectPath)) {
     assert(project.name === "Aura Hangout", "project name should be Aura Hangout");
     assert(project.tree?.$className === "DataModel", "project root should be a DataModel");
     assert(Boolean(project.tree?.ReplicatedStorage?.Shared?.$path), "ReplicatedStorage.Shared should map to src/shared");
+    assert(
+      project.tree?.Workspace?.SunsetIsland?.$path === "src/workspace/SunsetIsland.model.json",
+      "Workspace.SunsetIsland should map to src/workspace/SunsetIsland.model.json"
+    );
     assert(Boolean(project.tree?.ServerScriptService?.Server?.$path), "ServerScriptService.Server should map to src/server");
     assert(
       Boolean(project.tree?.StarterPlayer?.StarterPlayerScripts?.Client?.$path),
